@@ -1,13 +1,11 @@
 //
-//  Characters.swift
+//  People.swift
 //  ParsingJSONApp
 //
 //  Created by Alex on 05.05.2023.
 //
 
-import Foundation
-
-struct Characters: Decodable {
+struct People: Decodable {
     let message: String
     let total_records: Int
     let total_pages: Int

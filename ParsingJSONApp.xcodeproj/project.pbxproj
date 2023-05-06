@@ -13,7 +13,7 @@
 		FA7764CC2A055CA0009ABD75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7764CA2A055CA0009ABD75 /* Main.storyboard */; };
 		FA7764CE2A055CA2009ABD75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7764CD2A055CA2009ABD75 /* Assets.xcassets */; };
 		FA7764D12A055CA2009ABD75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7764CF2A055CA2009ABD75 /* LaunchScreen.storyboard */; };
-		FA7764DC2A0568EC009ABD75 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7764DB2A0568EC009ABD75 /* Characters.swift */; };
+		FA7764DC2A0568EC009ABD75 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7764DB2A0568EC009ABD75 /* People.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		FA7764CD2A055CA2009ABD75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA7764D02A055CA2009ABD75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA7764D22A055CA2009ABD75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA7764DB2A0568EC009ABD75 /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		FA7764DB2A0568EC009ABD75 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 		FA7764DD2A056901009ABD75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA7764DB2A0568EC009ABD75 /* Characters.swift */,
+				FA7764DB2A0568EC009ABD75 /* People.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 				FA7764C92A055CA0009ABD75 /* MainViewController.swift in Sources */,
 				FA7764C52A055CA0009ABD75 /* AppDelegate.swift in Sources */,
 				FA7764C72A055CA0009ABD75 /* SceneDelegate.swift in Sources */,
-				FA7764DC2A0568EC009ABD75 /* Characters.swift in Sources */,
+				FA7764DC2A0568EC009ABD75 /* People.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

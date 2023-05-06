@@ -50,7 +50,7 @@ final class MainViewController: UIViewController {
             
             do {
                 let decoder = JSONDecoder()
-                let model = try decoder.decode(Starships.self, from: data)
+                let model = try decoder.decode(Response.self, from: data)
                 
                 let names = model.results.map { $0.name }
 

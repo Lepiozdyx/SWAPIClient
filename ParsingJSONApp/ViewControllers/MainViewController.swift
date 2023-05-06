@@ -8,27 +8,18 @@
 import UIKit
 
 enum Link {
-    case films
     case people
     case planets
-    case species
     case starships
-    case vehicles
     
     var url: URL {
         switch self {
-        case .films:
-            return URL(string: "https://www.swapi.tech/api/films/")!
         case .people:
             return URL(string: "https://www.swapi.tech/api/people/")!
         case .planets:
             return URL(string: "https://www.swapi.tech/api/planets/")!
-        case .species:
-            return URL(string: "https://www.swapi.tech/api/species/")!
         case .starships:
             return URL(string: "https://www.swapi.tech/api/starships/")!
-        case .vehicles:
-            return URL(string: "https://www.swapi.tech/api/vehicles/")!
         }
     }
 }
@@ -47,7 +38,7 @@ final class MainViewController: UIViewController {
     // MARK: - Private methods
     private func fetchInfo() {
         
-        URLSession.shared.dataTask(with: Link.people.url) { [weak self] data, _, error in
+        URLSession.shared.dataTask(with: Link.starships.url) { [weak self] data, _, error in
             guard let data else {
                 print(error?.localizedDescription ?? "No error description")
                 return
@@ -59,18 +50,17 @@ final class MainViewController: UIViewController {
             
             do {
                 let decoder = JSONDecoder()
-                let model = try decoder.decode(People.self, from: data)
+                let model = try decoder.decode(Starships.self, from: data)
                 
                 let names = model.results.map { $0.name }
 
                 names.forEach { name in
-                    print("The names of Star Wars heroes: \(name)")
+                    print("The names of 'Star Wars' ships: \(name)")
                 }
             } catch {
                 print(error.localizedDescription)
             }
-            
-            
+
         }.resume()
     }
 

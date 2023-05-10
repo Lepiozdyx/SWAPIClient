@@ -9,13 +9,9 @@ import UIKit
 
 final class InfoTableViewController: UITableViewController {
     
+    // MARK: - Private properties
     private let networkManager = NetworkManager.shared
     private var results: [Essence] = []
-
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,55 +21,48 @@ final class InfoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let result = results[indexPath.row].name
-        content.text = result
+        let result = results[indexPath.row]
+        
+        content.text = result.name
+        content.textProperties.color = UIColor.systemYellow
+        content.textProperties.font = UIFont.systemFont(ofSize: 22)
+        cell.backgroundColor = UIColor.black
         cell.contentConfiguration = content
+        
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Private methods
+    private func fetchData(from url: URL) {
+        networkManager.fetch(About.self, from: url) { [weak self] result in
+            switch result {
+            case .success(let model):
+                self?.results = model.results
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 // MARK: - Networking
 extension InfoTableViewController {
     func fetchPeople() {
-        networkManager.fetch(Info.self, from: StarWars.people(.main).url) { [weak self] result in
-            switch result {
-            case .success(let model):
-                self?.results = model.results
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        fetchData(from: StarWars.people(.main).url)
     }
     
     func fetchPlanets() {
-        networkManager.fetch(Info.self, from: StarWars.planets(.main).url) { [weak self] result in
-            switch result {
-            case .success(let model):
-                self?.results = model.results
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        fetchData(from: StarWars.planets(.main).url)
     }
     
     func fetchStarships() {
-        networkManager.fetch(Info.self, from: StarWars.starships(.main).url) { [weak self] result in
-            switch result {
-            case .success(let model):
-                self?.results = model.results
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        fetchData(from: StarWars.starships(.main).url)
     }
 }

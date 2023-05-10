@@ -26,6 +26,7 @@ enum UserAction: CaseIterable {
 
 final class MainCollectionViewController: UICollectionViewController {
     
+    // MARK: - Private properties
     private let userActions = UserAction.allCases
     private let networkManager = NetworkManager.shared
     
@@ -60,10 +61,13 @@ final class MainCollectionViewController: UICollectionViewController {
         guard let infoVC = segue.destination as? InfoTableViewController else { return }
 
         if segue.identifier == "peopleSegue" {
+            infoVC.navigationItem.title = UserAction.people.title
             infoVC.fetchPeople()
         } else if segue.identifier == "planetsSegue" {
+            infoVC.navigationItem.title = UserAction.planets.title
             infoVC.fetchPlanets()
         } else if segue.identifier == "starshipsSegue" {
+            infoVC.navigationItem.title = UserAction.starships.title
             infoVC.fetchStarships()
         }
     }

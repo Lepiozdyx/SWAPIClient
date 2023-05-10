@@ -62,13 +62,13 @@ final class MainCollectionViewController: UICollectionViewController {
 
         if segue.identifier == "peopleSegue" {
             infoVC.navigationItem.title = UserAction.people.title
-            infoVC.fetchPeople()
+            infoVC.fetchData(from: StarWars.people(.main).url)
         } else if segue.identifier == "planetsSegue" {
             infoVC.navigationItem.title = UserAction.planets.title
-            infoVC.fetchPlanets()
+            infoVC.fetchData(from: StarWars.planets(.main).url)
         } else if segue.identifier == "starshipsSegue" {
             infoVC.navigationItem.title = UserAction.starships.title
-            infoVC.fetchStarships()
+            infoVC.fetchData(from: StarWars.starships(.main).url)
         }
     }
 

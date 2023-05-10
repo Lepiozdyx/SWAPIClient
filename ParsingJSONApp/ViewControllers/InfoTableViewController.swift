@@ -35,9 +35,12 @@ final class InfoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    // MARK: - Private methods
-    private func fetchData(from url: URL) {
+
+}
+
+// MARK: - Networking
+extension InfoTableViewController {
+    func fetchData(from url: URL) {
         networkManager.fetch(About.self, from: url) { [weak self] result in
             switch result {
             case .success(let model):
@@ -49,20 +52,5 @@ final class InfoTableViewController: UITableViewController {
                 print(error)
             }
         }
-    }
-}
-
-// MARK: - Networking
-extension InfoTableViewController {
-    func fetchPeople() {
-        fetchData(from: StarWars.people(.main).url)
-    }
-    
-    func fetchPlanets() {
-        fetchData(from: StarWars.planets(.main).url)
-    }
-    
-    func fetchStarships() {
-        fetchData(from: StarWars.starships(.main).url)
     }
 }

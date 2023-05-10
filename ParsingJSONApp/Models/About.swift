@@ -1,11 +1,11 @@
 //
-//  Info.swift
+//  About.swift
 //  ParsingJSONApp
 //
 //  Created by Alex on 06.05.2023.
 //
 
-struct Info: Decodable {
+struct About: Decodable {
     let message: String
     let totalRecords: Int
     let totalPages: Int

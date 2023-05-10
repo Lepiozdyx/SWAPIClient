@@ -1,19 +1,19 @@
 //
-//  Starships.swift
+//  Info.swift
 //  ParsingJSONApp
 //
 //  Created by Alex on 06.05.2023.
 //
 
-struct Response: Decodable {
+struct Info: Decodable {
     let message: String
-    let total_records: Int
-    let total_pages: Int
+    let totalRecords: Int
+    let totalPages: Int
     let next: String
-    let results: [Object]
+    let results: [Essence]
 }
 
-struct Object: Decodable {
+struct Essence: Decodable {
     let uid: String
     let name: String
     let url: String

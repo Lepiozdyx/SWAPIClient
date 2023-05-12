@@ -11,10 +11,10 @@ struct About: Decodable {
     let totalRecords: Int
     let totalPages: Int
     let previous: String?
-    let next: String
+    let next: String?
     let results: [Essence]
 }
-
+    
 struct Essence: Decodable {
     let uid: String
     let name: String

@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FA00A7142A06D334008E9111 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA00A7132A06D334008E9111 /* About.swift */; };
-		FA00A7162A06F859008E9111 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA00A7152A06F859008E9111 /* People.swift */; };
-		FA00A7182A06FF66008E9111 /* Planets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA00A7172A06FF66008E9111 /* Planets.swift */; };
-		FA00A71A2A0700DA008E9111 /* Starships.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA00A7192A0700DA008E9111 /* Starships.swift */; };
 		FA0E16F42A0A864C001830EC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E16F32A0A864C001830EC /* NetworkManager.swift */; };
 		FA0E16F62A0AC72E001830EC /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E16F52A0AC72E001830EC /* UserActionCell.swift */; };
 		FA7764C52A055CA0009ABD75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7764C42A055CA0009ABD75 /* AppDelegate.swift */; };
@@ -24,9 +21,6 @@
 
 /* Begin PBXFileReference section */
 		FA00A7132A06D334008E9111 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
-		FA00A7152A06F859008E9111 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
-		FA00A7172A06FF66008E9111 /* Planets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planets.swift; sourceTree = "<group>"; };
-		FA00A7192A0700DA008E9111 /* Starships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starships.swift; sourceTree = "<group>"; };
 		FA0E16F32A0A864C001830EC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA0E16F52A0AC72E001830EC /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		FA7764C12A055CA0009ABD75 /* ParsingJSONApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParsingJSONApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,9 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				FA00A7132A06D334008E9111 /* About.swift */,
-				FA00A7152A06F859008E9111 /* People.swift */,
-				FA00A7172A06FF66008E9111 /* Planets.swift */,
-				FA00A7192A0700DA008E9111 /* Starships.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,10 +202,7 @@
 				FAFB2F8B2A0BDCA80072CF5F /* InfoTableViewController.swift in Sources */,
 				FA7764C52A055CA0009ABD75 /* AppDelegate.swift in Sources */,
 				FA7764C72A055CA0009ABD75 /* SceneDelegate.swift in Sources */,
-				FA00A71A2A0700DA008E9111 /* Starships.swift in Sources */,
 				FA0E16F42A0A864C001830EC /* NetworkManager.swift in Sources */,
-				FA00A7162A06F859008E9111 /* People.swift in Sources */,
-				FA00A7182A06FF66008E9111 /* Planets.swift in Sources */,
 				FA00A7142A06D334008E9111 /* About.swift in Sources */,
 				FA0E16F62A0AC72E001830EC /* UserActionCell.swift in Sources */,
 			);

@@ -12,6 +12,7 @@ final class InfoTableViewController: UITableViewController {
     // MARK: - Private properties
     private let networkManager = NetworkManager.shared
     private var results: [Essence] = []
+    private var nextPageURL: URL?
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,9 +33,15 @@ final class InfoTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == results.count - 1 {
+            fetchNextPage()
+        }
     }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
 
 }
 
@@ -44,7 +51,11 @@ extension InfoTableViewController {
         networkManager.fetch(About.self, from: url) { [weak self] result in
             switch result {
             case .success(let model):
-                self?.results = model.results
+                self?.results += model.results
+                if let next = model.next {
+                    self?.nextPageURL = URL(string: next)
+                }
+                
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -52,5 +63,11 @@ extension InfoTableViewController {
                 print(error)
             }
         }
+    }
+    
+    func fetchNextPage() {
+        guard let nextPageURL = nextPageURL else { return }
+        
+        fetchData(from: nextPageURL)
     }
 }

@@ -35,7 +35,7 @@ final class InfoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == results.count - 1 {
-            fetchNextPage()
+            fetchData(from: nextPageURL!)
         }
     }
     
@@ -51,7 +51,7 @@ extension InfoTableViewController {
         networkManager.fetch(About.self, from: url) { [weak self] result in
             switch result {
             case .success(let model):
-                self?.results += model.results
+                self?.results.append(contentsOf: model.results) 
                 if let next = model.next {
                     self?.nextPageURL = URL(string: next)
                 }
@@ -65,9 +65,4 @@ extension InfoTableViewController {
         }
     }
     
-    func fetchNextPage() {
-        guard let nextPageURL = nextPageURL else { return }
-        
-        fetchData(from: nextPageURL)
-    }
 }

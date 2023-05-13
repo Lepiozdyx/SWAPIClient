@@ -14,7 +14,7 @@ final class InfoTableViewController: UITableViewController {
     private var results: [Essence] = []
     private var nextPageURL: URL?
 
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         results.count
     }
@@ -26,22 +26,27 @@ final class InfoTableViewController: UITableViewController {
         
         content.text = result.name
         content.textProperties.color = UIColor.systemYellow
-        content.textProperties.font = UIFont.systemFont(ofSize: 22)
+        content.textProperties.font = UIFont(name: "Avenir-Heavy", size: 22)!
         cell.backgroundColor = UIColor.black
         cell.contentConfiguration = content
         
         return cell
     }
     
+    // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == results.count - 1 {
-            fetchData(from: nextPageURL!)
+        if indexPath.row == results.count - 3, let nextPageURL = nextPageURL {
+            fetchData(from: nextPageURL)
         }
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let essence = results[indexPath.row]
+        guard let detailVC = segue.destination as? DetailViewController else { return }
+        detailVC.selectedEssenceURL = URL(string: essence.url)
+    }
 
 }
 

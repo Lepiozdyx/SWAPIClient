@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,6 +34,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BW1-uW-gF6" kind="show" identifier="" id="PIb-lf-7Y6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -40,11 +44,52 @@
                             <outlet property="delegate" destination="VwN-bv-BJL" id="zTN-cr-2k8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="nde-61-ic0"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="nde-61-ic0">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="43r-cB-sOg"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7q9-Rr-8JD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1978" y="-675"/>
+        </scene>
+        <!--Detail info-->
+        <scene sceneID="Skl-xe-PWw">
+            <objects>
+                <viewController id="BW1-uW-gF6" customClass="DetailViewController" customModule="ParsingJSONApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dfy-aR-5uL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efw-xX-cWR">
+                                <rect key="frame" x="16" y="163" width="361" height="27.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fpm-Ul-8D2">
+                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                                <color key="color" systemColor="systemYellowColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="os2-oE-DxZ"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="efw-xX-cWR" firstAttribute="leading" secondItem="os2-oE-DxZ" secondAttribute="leading" constant="16" id="92q-aE-PcU"/>
+                            <constraint firstItem="efw-xX-cWR" firstAttribute="top" secondItem="os2-oE-DxZ" secondAttribute="top" constant="60" id="a19-NC-imS"/>
+                            <constraint firstItem="fpm-Ul-8D2" firstAttribute="centerX" secondItem="dfy-aR-5uL" secondAttribute="centerX" id="ihe-dP-FaS"/>
+                            <constraint firstItem="fpm-Ul-8D2" firstAttribute="centerY" secondItem="dfy-aR-5uL" secondAttribute="centerY" id="qBC-QG-Va3"/>
+                            <constraint firstItem="os2-oE-DxZ" firstAttribute="trailing" secondItem="efw-xX-cWR" secondAttribute="trailing" constant="16" id="xzw-M8-XWR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail info" id="xHY-Nd-qDz"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="fpm-Ul-8D2" id="oEq-Je-beQ"/>
+                        <outlet property="descriptionLabel" destination="efw-xX-cWR" id="CM0-5b-R5b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Seq-tD-PDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2773" y="-675"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zbs-Pi-XYd">
@@ -54,6 +99,7 @@
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="systemYellowColor"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" systemColor="systemYellowColor"/>
                         </textAttributes>
@@ -89,8 +135,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7E-4a-9zd">
-                                            <rect key="frame" x="134" y="32" width="72" height="36"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                            <rect key="frame" x="132.33333333333334" y="29.666666666666671" width="75.666666666666657" height="41"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                             <color key="textColor" systemColor="systemYellowColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>

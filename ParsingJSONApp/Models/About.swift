@@ -40,6 +40,19 @@ struct PersonProperties: Decodable {
     let name: String
     let homeworld: String
     let url: String
+    
+    var description: String {
+        """
+        Name: \(name)
+        Height: \(height)
+        Mass: \(mass)
+        Hair color: \(hairColor)
+        Skin color: \(skinColor)
+        Eye color: \(eyeColor)
+        Birth year: \(birthYear)
+        Gender: \(gender)
+    """
+    }
 }
 
 struct Planets: Decodable {
@@ -60,6 +73,19 @@ struct PlanetProperties: Decodable {
     let terrain: String
     let name: String
     let url: String
+    
+    var description: String {
+        """
+        Name: \(name)
+        Diameter: \(diameter)
+        Rotation period: \(rotationPeriod)
+        Orbital period: \(orbitalPeriod)
+        Gravity: \(gravity)
+        Population: \(population)
+        Climate: \(climate)
+        Terrain: \(terrain)
+    """
+    }
 }
 
 struct Starships: Decodable {
@@ -83,6 +109,22 @@ struct StarshipProperties: Decodable {
     let cargoCapacity: String
     let name: String
     let url: String
+    
+    var description: String {
+        """
+        Name: \(name)
+        Model: \(model)
+        Starship class: \(starshipClass)
+        Manufacturer: \(manufacturer)
+        Cost in credits: \(costInCredits)
+        Length: \(length)
+        Crew: \(crew)
+        Passengers: \(passengers)
+        Max atmospheric velocity: \(maxAtmospheringSpeed)
+        Hyperdrive rating: \(hyperdriveRating)
+        Cargo capacity: \(cargoCapacity)
+    """
+    }
 }
 
 enum StarWarsAPI {

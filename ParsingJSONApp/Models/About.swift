@@ -13,12 +13,51 @@ struct About: Decodable {
     let previous: String?
     let next: String?
     let results: [Essence]
+    
+    init(totalRecords: Int, totalPages: Int, previous: String?, next: String?, results: [Essence]) {
+        self.totalRecords = totalRecords
+        self.totalPages = totalPages
+        self.previous = previous
+        self.next = next
+        self.results = results
+    }
+    
+    init(from data: [String: Any]) {
+        totalRecords = data["total_records"] as? Int ?? 0
+        totalPages = data["total_pages"] as? Int ?? 0
+        previous = data["previous"] as? String
+        next = data["next"] as? String
+        
+        guard let resultsData = data["results"] as? [[String: Any]] else {
+            results = []
+            return
+        }
+        results = resultsData.compactMap { Essence(from: $0) }
+    }
+    
+    static func getAbout(from value: Any) -> About? {
+        guard let data = value as? [String: Any] else { return nil }
+        return About(from: data)
+        
+    }
 }
     
 struct Essence: Decodable {
     let uid: String
     let name: String
     let url: String
+    
+    init(uid: String, name: String, url: String) {
+        self.uid = uid
+        self.name = name
+        self.url = url
+    }
+    
+    init(from essenceData: [String: Any]) {
+        uid = essenceData["uid"] as? String ?? ""
+        name = essenceData["name"] as? String ?? ""
+        url = essenceData["url"] as? String ?? ""
+    }
 }
 
 struct People: Decodable {

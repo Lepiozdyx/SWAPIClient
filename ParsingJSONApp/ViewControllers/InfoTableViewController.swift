@@ -35,7 +35,8 @@ final class InfoTableViewController: UITableViewController {
     
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == results.count - 3, let nextPageURL = nextPageURL {
+        if indexPath.row == results.count - 5, let nextPageURL = nextPageURL {
+            self.nextPageURL = nil
             fetchData(from: nextPageURL)
         }
     }
@@ -53,19 +54,16 @@ final class InfoTableViewController: UITableViewController {
 // MARK: - Networking
 extension InfoTableViewController {
     func fetchData(from url: URL) {
-        networkManager.fetch(About.self, from: url) { [weak self] result in
+        networkManager.fetch(from: url) { [weak self] result in
             switch result {
-            case .success(let model):
-                self?.results.append(contentsOf: model.results) 
-                if let next = model.next {
+            case .success(let about):
+                self?.results.append(contentsOf: about.results)
+                if let next = about.next {
                     self?.nextPageURL = URL(string: next)
                 }
-                
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
+                self?.tableView.reloadData()
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA00A7142A06D334008E9111 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA00A7132A06D334008E9111 /* About.swift */; };
+		FA00A7142A06D334008E9111 /* StarWars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA00A7132A06D334008E9111 /* StarWars.swift */; };
 		FA0E16F42A0A864C001830EC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E16F32A0A864C001830EC /* NetworkManager.swift */; };
 		FA0E16F62A0AC72E001830EC /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E16F52A0AC72E001830EC /* UserActionCell.swift */; };
 		FA2435D12A111DCF00EA7000 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FA2435D02A111DCF00EA7000 /* Alamofire */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA00A7132A06D334008E9111 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		FA00A7132A06D334008E9111 /* StarWars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWars.swift; sourceTree = "<group>"; };
 		FA0E16F32A0A864C001830EC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA0E16F52A0AC72E001830EC /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		FA283A702A0FD802002E1A22 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		FA7764DD2A056901009ABD75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA00A7132A06D334008E9111 /* About.swift */,
+				FA00A7132A06D334008E9111 /* StarWars.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				FA7764C52A055CA0009ABD75 /* AppDelegate.swift in Sources */,
 				FA7764C72A055CA0009ABD75 /* SceneDelegate.swift in Sources */,
 				FA0E16F42A0A864C001830EC /* NetworkManager.swift in Sources */,
-				FA00A7142A06D334008E9111 /* About.swift in Sources */,
+				FA00A7142A06D334008E9111 /* StarWars.swift in Sources */,
 				FA0E16F62A0AC72E001830EC /* UserActionCell.swift in Sources */,
 				FA283A712A0FD802002E1A22 /* DetailViewController.swift in Sources */,
 			);

@@ -35,13 +35,13 @@ final class NetworkManager {
 //        }.resume()
 //    }
     
-    func fetch(from url: URL, completion: @escaping (Result<About, AFError>) -> Void) {
+    func fetch(from url: URL, completion: @escaping (Result<StarWars, AFError>) -> Void) {
         AF.request(url)
             .validate()
             .responseJSON { dataResponse in
                 switch dataResponse.result {
                 case .success(let value):
-                    guard let results = About.getAbout(from: value) else { return }
+                    guard let results = StarWars.getObject(from: value) else { return }
                     completion(.success(results))
                 case .failure(let error):
                     completion(.failure(error))

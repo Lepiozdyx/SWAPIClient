@@ -1,5 +1,5 @@
 //
-//  About.swift
+//  StarWars.swift
 //  ParsingJSONApp
 //
 //  Created by Alex on 06.05.2023.
@@ -7,20 +7,12 @@
 
 import Foundation
 
-struct About: Decodable {
+struct StarWars: Decodable {
     let totalRecords: Int
     let totalPages: Int
     let previous: String?
     let next: String?
     let results: [Essence]
-    
-    init(totalRecords: Int, totalPages: Int, previous: String?, next: String?, results: [Essence]) {
-        self.totalRecords = totalRecords
-        self.totalPages = totalPages
-        self.previous = previous
-        self.next = next
-        self.results = results
-    }
     
     init(from data: [String: Any]) {
         totalRecords = data["total_records"] as? Int ?? 0
@@ -32,14 +24,14 @@ struct About: Decodable {
             results = []
             return
         }
-        results = resultsData.compactMap { Essence(from: $0) }
+        results = resultsData.map { Essence(from: $0) }
     }
     
-    static func getAbout(from value: Any) -> About? {
+    static func getObject(from value: Any) -> StarWars? {
         guard let data = value as? [String: Any] else { return nil }
-        return About(from: data)
-        
+        return StarWars(from: data)
     }
+    
 }
     
 struct Essence: Decodable {
@@ -47,16 +39,10 @@ struct Essence: Decodable {
     let name: String
     let url: String
     
-    init(uid: String, name: String, url: String) {
-        self.uid = uid
-        self.name = name
-        self.url = url
-    }
-    
-    init(from essenceData: [String: Any]) {
-        uid = essenceData["uid"] as? String ?? ""
-        name = essenceData["name"] as? String ?? ""
-        url = essenceData["url"] as? String ?? ""
+    init(from data: [String: Any]) {
+        uid = data["uid"] as? String ?? ""
+        name = data["name"] as? String ?? ""
+        url = data["url"] as? String ?? ""
     }
 }
 

@@ -21,6 +21,7 @@ struct Essence: Decodable {
     let url: String
 }
 
+// MARK: - People model
 struct People: Decodable {
     let result: PeopleData
 }
@@ -55,6 +56,7 @@ struct PersonProperties: Decodable {
     }
 }
 
+// MARK: - Planets model
 struct Planets: Decodable {
     let result: PlanetsData
 }
@@ -88,6 +90,7 @@ struct PlanetProperties: Decodable {
     }
 }
 
+// MARK: - Starships model
 struct Starships: Decodable {
     let result: StarshipsData
 }
@@ -127,6 +130,7 @@ struct StarshipProperties: Decodable {
     }
 }
 
+// MARK: - URl enumeration
 enum StarWarsAPI {
     case peopleURL
     case planetsURL

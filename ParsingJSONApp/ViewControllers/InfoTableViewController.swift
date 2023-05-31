@@ -13,6 +13,12 @@ final class InfoTableViewController: UITableViewController {
     private let networkManager = NetworkManager.shared
     private var results: [Essence] = []
     private var nextPageURL: URL?
+    
+    // MARK: - View life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.rowHeight = 60
+    }
 
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +69,8 @@ extension InfoTableViewController {
                 }
                 self?.tableView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
+                self?.presentAlertError(with: error)
             }
         }
     }

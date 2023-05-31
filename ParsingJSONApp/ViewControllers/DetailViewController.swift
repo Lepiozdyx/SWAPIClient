@@ -34,29 +34,30 @@ final class DetailViewController: UIViewController {
 //    }
     
    // MARK: - Private methods
-//    private func fetchData<T: Decodable>(of type: T.Type, from url: URL) {
-//        networkManager.fetch(type, from: url) { [weak self] result in
-//            switch result {
-//            case .success(let detail):
-//                var description = ""
-//
-//                if let peopleDetail = detail as? People {
-//                    description = peopleDetail.result.properties.description
-//                } else if let planetDetail = detail as? Planets {
-//                    description = planetDetail.result.properties.description
-//                } else if let starshipDetail = detail as? Starships {
-//                    description = starshipDetail.result.properties.description
-//                }
-//
-//                DispatchQueue.main.async {
-//                    self?.descriptionLabel.text = description
-//                    self?.activityIndicator.stopAnimating()
-//                }
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
+    private func fetchData<T: Decodable>(of type: T.Type, from url: URL) {
+        networkManager.fetch(type, from: url) { [weak self] result in
+            switch result {
+            case .success(let detail):
+                var description = ""
+                
+                if let peopleDetail = detail as? People {
+                    description = peopleDetail.result.properties.description
+                } else if let planetDetail = detail as? Planets {
+                    description = planetDetail.result.properties.description
+                } else if let starshipDetail = detail as? Starships {
+                    description = starshipDetail.result.properties.description
+                }
+                
+                DispatchQueue.main.async {
+                    self?.descriptionLabel.text = description
+                    self?.activityIndicator.stopAnimating()
+                }
+                
+            case .failure(let error):
+                print(error)
+                self?.presentAlertError(with: error)
+            }
+        }
+    }
 
 }

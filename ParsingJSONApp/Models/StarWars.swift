@@ -13,37 +13,12 @@ struct StarWars: Decodable {
     let previous: String?
     let next: String?
     let results: [Essence]
-    
-    init(from data: [String: Any]) {
-        totalRecords = data["total_records"] as? Int ?? 0
-        totalPages = data["total_pages"] as? Int ?? 0
-        previous = data["previous"] as? String
-        next = data["next"] as? String
-        
-        guard let resultsData = data["results"] as? [[String: Any]] else {
-            results = []
-            return
-        }
-        results = resultsData.map { Essence(from: $0) }
-    }
-    
-    static func getObject(from value: Any) -> StarWars? {
-        guard let data = value as? [String: Any] else { return nil }
-        return StarWars(from: data)
-    }
-    
 }
     
 struct Essence: Decodable {
     let uid: String
     let name: String
     let url: String
-    
-    init(from data: [String: Any]) {
-        uid = data["uid"] as? String ?? ""
-        name = data["name"] as? String ?? ""
-        url = data["url"] as? String ?? ""
-    }
 }
 
 // MARK: - People model

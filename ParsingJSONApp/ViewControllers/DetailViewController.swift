@@ -18,20 +18,20 @@ final class DetailViewController: UIViewController {
     private let networkManager = NetworkManager.shared
     
     // MARK: - View life cycle
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        guard let url = selectedEssenceURL else { return }
-//
-//        if url.absoluteString.contains("/people/") {
-//            fetchData(of: People.self, from: url)
-//        } else if url.absoluteString.contains("/planets/") {
-//            fetchData(of: Planets.self, from: url)
-//        } else if url.absoluteString.contains("/starships/") {
-//            fetchData(of: Starships.self, from: url)
-//        }
-//
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        guard let url = selectedEssenceURL else { return }
+
+        if url.absoluteString.contains("/people/") {
+            fetchData(of: People.self, from: url)
+        } else if url.absoluteString.contains("/planets/") {
+            fetchData(of: Planets.self, from: url)
+        } else if url.absoluteString.contains("/starships/") {
+            fetchData(of: Starships.self, from: url)
+        }
+
+    }
     
    // MARK: - Private methods
     private func fetchData<T: Decodable>(of type: T.Type, from url: URL) {

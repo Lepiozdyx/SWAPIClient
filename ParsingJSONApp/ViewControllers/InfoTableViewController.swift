@@ -60,7 +60,7 @@ final class InfoTableViewController: UITableViewController {
 // MARK: - Networking
 extension InfoTableViewController {
     func fetchData(from url: URL) {
-        networkManager.fetch(from: url) { [weak self] result in
+        networkManager.fetch(StarWars.self, from: url) { [weak self] result in
             switch result {
             case .success(let about):
                 self?.results.append(contentsOf: about.results)

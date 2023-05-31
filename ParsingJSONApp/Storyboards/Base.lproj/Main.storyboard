@@ -114,7 +114,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBE-Mn-hKl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349" y="-675"/>
+            <point key="canvasLocation" x="182" y="-676"/>
         </scene>
         <!--Learn about:-->
         <scene sceneID="AaF-s8-FFu">
@@ -173,11 +173,13 @@
                         <segue destination="VwN-bv-BJL" kind="show" identifier="starshipsSegue" id="rgU-8w-dk7"/>
                         <segue destination="VwN-bv-BJL" kind="show" identifier="planetsSegue" id="aGT-ny-5Ec"/>
                         <segue destination="VwN-bv-BJL" kind="show" identifier="peopleSegue" id="atk-0D-IrQ"/>
+                        <segue destination="VwN-bv-BJL" kind="show" identifier="filmsSegue" id="Udm-4N-NpC"/>
+                        <segue destination="VwN-bv-BJL" kind="show" identifier="vehiclesSegue" id="TbJ-mH-XUP"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJw-vl-nfW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163" y="-674"/>
+            <point key="canvasLocation" x="996" y="-675"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -55,6 +55,7 @@ final class DetailViewController: UIViewController {
                 
             case .failure(let error):
                 print(error)
+                self?.presentAlertError(with: error)
             }
         }
     }

@@ -67,7 +67,9 @@ extension InfoTableViewController {
                 if let next = about.next {
                     self?.nextPageURL = URL(string: next)
                 }
-                self?.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error)
                 self?.presentAlertError(with: error)

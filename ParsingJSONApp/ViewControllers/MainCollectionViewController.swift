@@ -11,7 +11,6 @@ enum UserAction: CaseIterable {
     case people
     case planets
     case starships
-    case films
     case vehicles
     
     var title: String {
@@ -22,8 +21,6 @@ enum UserAction: CaseIterable {
             return "Planets"
         case .starships:
             return "Starships"
-        case .films:
-            return "Films"
         case .vehicles:
             return "Vehicles"
         }
@@ -59,8 +56,6 @@ final class MainCollectionViewController: UICollectionViewController {
             performSegue(withIdentifier: "planetsSegue", sender: nil)
         case .starships:
             performSegue(withIdentifier: "starshipsSegue", sender: nil)
-        case .films:
-            performSegue(withIdentifier: "filmsSegue", sender: nil)
         case .vehicles:
             performSegue(withIdentifier: "vehiclesSegue", sender: nil)
         }
@@ -80,26 +75,10 @@ final class MainCollectionViewController: UICollectionViewController {
         case "starshipsSegue":
             infoVC.navigationItem.title = UserAction.starships.title
             infoVC.fetchData(from: StarWarsAPI.starshipsURL.url)
-        case "filmsSegue":
-            infoVC.navigationItem.title = UserAction.films.title
-            infoVC.fetchData(from: StarWarsAPI.filmsURL.url)
-        case "vehiclesSegue":
+        default:
             infoVC.navigationItem.title = UserAction.vehicles.title
             infoVC.fetchData(from: StarWarsAPI.vehiclesURL.url)
-        default:
-            break
         }
-
-//        if segue.identifier == "peopleSegue" {
-//            infoVC.navigationItem.title = UserAction.people.title
-//            infoVC.fetchData(from: StarWarsAPI.peopleURL.url)
-//        } else if segue.identifier == "planetsSegue" {
-//            infoVC.navigationItem.title = UserAction.planets.title
-//            infoVC.fetchData(from: StarWarsAPI.planetsURL.url)
-//        } else if segue.identifier == "starshipsSegue" {
-//            infoVC.navigationItem.title = UserAction.starships.title
-//            infoVC.fetchData(from: StarWarsAPI.starshipsURL.url)
-//        }
     }
 
 }

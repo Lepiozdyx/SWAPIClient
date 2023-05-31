@@ -29,6 +29,8 @@ final class DetailViewController: UIViewController {
             fetchData(of: Planets.self, from: url)
         } else if url.absoluteString.contains("/starships/") {
             fetchData(of: Starships.self, from: url)
+        } else if url.absoluteString.contains("/vehicles/") {
+            fetchData(of: Vehicles.self, from: url)
         }
 
     }
@@ -46,6 +48,8 @@ final class DetailViewController: UIViewController {
                     description = planetDetail.result.properties.description
                 } else if let starshipDetail = detail as? Starships {
                     description = starshipDetail.result.properties.description
+                } else if let vehiclesDetail = detail as? Vehicles {
+                    description = vehiclesDetail.result.properties.description
                 }
                 
                 DispatchQueue.main.async {

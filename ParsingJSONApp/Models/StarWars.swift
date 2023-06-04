@@ -44,14 +44,14 @@ struct PersonProperties: Decodable {
     
     var description: String {
         """
-        Name: \(name)
-        Height: \(height)
-        Mass: \(mass)
-        Hair color: \(hairColor)
-        Skin color: \(skinColor)
-        Eye color: \(eyeColor)
-        Birth year: \(birthYear)
-        Gender: \(gender)
+    Name: \(name)
+    Height: \(height)
+    Mass: \(mass)
+    Hair color: \(hairColor)
+    Skin color: \(skinColor)
+    Eye color: \(eyeColor)
+    Birth year: \(birthYear)
+    Gender: \(gender)
     """
     }
 }
@@ -77,14 +77,14 @@ struct PlanetProperties: Decodable {
     
     var description: String {
         """
-        Name: \(name)
-        Diameter: \(diameter)
-        Rotation period: \(rotationPeriod)
-        Orbital period: \(orbitalPeriod)
-        Gravity: \(gravity)
-        Population: \(population)
-        Climate: \(climate)
-        Terrain: \(terrain)
+    Name: \(name)
+    Diameter: \(diameter)
+    Rotation period: \(rotationPeriod)
+    Orbital period: \(orbitalPeriod)
+    Gravity: \(gravity)
+    Population: \(population)
+    Climate: \(climate)
+    Terrain: \(terrain)
     """
     }
 }
@@ -113,17 +113,17 @@ struct StarshipProperties: Decodable {
     
     var description: String {
         """
-        Name: \(name)
-        Model: \(model)
-        Starship class: \(starshipClass)
-        Manufacturer: \(manufacturer)
-        Cost in credits: \(costInCredits)
-        Length: \(length)
-        Crew: \(crew)
-        Passengers: \(passengers)
-        Max atmospheric velocity: \(maxAtmospheringSpeed)
-        Hyperdrive rating: \(hyperdriveRating)
-        Cargo capacity: \(cargoCapacity)
+    Name: \(name)
+    Model: \(model)
+    Starship class: \(starshipClass)
+    Manufacturer: \(manufacturer)
+    Cost in credits: \(costInCredits)
+    Length: \(length)
+    Crew: \(crew)
+    Passengers: \(passengers)
+    Max atmospheric velocity: \(maxAtmospheringSpeed)
+    Hyperdrive rating: \(hyperdriveRating)
+    Cargo capacity: \(cargoCapacity)
     """
     }
 }
@@ -151,16 +151,16 @@ struct VehicleProperties: Decodable {
     
     var description: String {
         """
-        Name: \(name)
-        Model: \(model)
-        Vehicle class: \(vehicleClass)
-        Manufacturer: \(manufacturer)
-        Cost in credits: \(costInCredits)
-        Length: \(length)
-        Crew: \(crew)
-        Passengers: \(passengers)
-        Max atmospheric velocity: \(maxAtmospheringSpeed)
-        Cargo capacity: \(cargoCapacity)
+    Name: \(name)
+    Model: \(model)
+    Vehicle class: \(vehicleClass)
+    Manufacturer: \(manufacturer)
+    Cost in credits: \(costInCredits)
+    Length: \(length)
+    Crew: \(crew)
+    Passengers: \(passengers)
+    Max atmospheric velocity: \(maxAtmospheringSpeed)
+    Cargo capacity: \(cargoCapacity)
     """
     }
 }

@@ -46,7 +46,7 @@ final class DetailViewController: UIViewController {
                     description = peopleDetail.result.properties.description
                     if let homeworldURL = URL(string: peopleDetail.result.properties.homeworld) {
                         self?.fetchHomeworld(from: homeworldURL) { name in
-                            description += "\n    Homeworld: \(name)"
+                            description += "\nHomeworld: \(name)"
                             DispatchQueue.main.async {
                                 self?.descriptionLabel.text = description
                             }

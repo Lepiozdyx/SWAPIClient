@@ -9,6 +9,8 @@ import UIKit
 
 final class InfoTableViewController: UITableViewController {
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     // MARK: - Private properties
     private let networkManager = NetworkManager.shared
     private var results: [Essence] = []
@@ -69,6 +71,7 @@ extension InfoTableViewController {
                 }
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    self?.activityIndicator.stopAnimating()
                 }
             case .failure(let error):
                 self?.presentAlertError(with: error)

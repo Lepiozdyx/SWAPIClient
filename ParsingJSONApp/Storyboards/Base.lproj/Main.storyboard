@@ -17,6 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" id="M5m-rc-QkH">
+                            <rect key="frame" x="0.0" y="121.66666793823242" width="393" height="410"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" systemColor="systemYellowColor"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" textLabel="hQO-VK-fa3" style="IBUITableViewCellStyleDefault" id="iXX-fg-nJt">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -47,10 +52,13 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="nde-61-ic0">
                         <barButtonItem key="backBarButtonItem" title="Back" id="43r-cB-sOg"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="M5m-rc-QkH" id="31y-1n-V7Z"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7q9-Rr-8JD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1978" y="-675"/>
+            <point key="canvasLocation" x="1977.8625954198471" y="-675.35211267605632"/>
         </scene>
         <!--Detail info-->
         <scene sceneID="Skl-xe-PWw">

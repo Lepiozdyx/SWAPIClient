@@ -20,9 +20,9 @@ final class DetailViewController: UIViewController {
     // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         guard let url = selectedEssenceURL else { return }
-
+        
         if url.absoluteString.contains("/people/") {
             fetchData(of: People.self, from: url)
         } else if url.absoluteString.contains("/planets/") {
@@ -32,10 +32,10 @@ final class DetailViewController: UIViewController {
         } else if url.absoluteString.contains("/vehicles/") {
             fetchData(of: Vehicles.self, from: url)
         }
-
+        
     }
     
-   // MARK: - Private methods
+    // MARK: - Private methods
     private func fetchData<T: Decodable>(of type: T.Type, from url: URL) {
         networkManager.fetch(type, from: url) { [weak self] result in
             switch result {
@@ -44,6 +44,14 @@ final class DetailViewController: UIViewController {
                 
                 if let peopleDetail = detail as? People {
                     description = peopleDetail.result.properties.description
+                    if let homeworldURL = URL(string: peopleDetail.result.properties.homeworld) {
+                        self?.fetchHomeworld(from: homeworldURL) { name in
+                            description += "\n    Homeworld: \(name)"
+                            DispatchQueue.main.async {
+                                self?.descriptionLabel.text = description
+                            }
+                        }
+                    }                    
                 } else if let planetDetail = detail as? Planets {
                     description = planetDetail.result.properties.description
                 } else if let starshipDetail = detail as? Starships {
@@ -63,5 +71,16 @@ final class DetailViewController: UIViewController {
             }
         }
     }
-
+    
+    private func fetchHomeworld(from url: URL, completion: @escaping (String) -> Void) {
+        networkManager.fetch(Planets.self, from: url) { [weak self] result in
+            switch result {
+            case .success(let planetDetail):
+                completion(planetDetail.result.properties.name)
+            case .failure(let error):
+                self?.presentAlertError(with: error)
+            }
+        }
+    }
+    
 }

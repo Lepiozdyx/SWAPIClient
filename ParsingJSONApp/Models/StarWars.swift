@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Main model
 struct StarWars: Decodable {
     let totalRecords: Int
     let totalPages: Int
@@ -40,7 +41,6 @@ struct PersonProperties: Decodable {
     let gender: String
     let name: String
     let homeworld: String
-    let url: String
     
     var description: String {
         """
@@ -74,7 +74,6 @@ struct PlanetProperties: Decodable {
     let climate: String
     let terrain: String
     let name: String
-    let url: String
     
     var description: String {
         """
@@ -111,7 +110,6 @@ struct StarshipProperties: Decodable {
     let hyperdriveRating: String
     let cargoCapacity: String
     let name: String
-    let url: String
     
     var description: String {
         """
@@ -150,7 +148,6 @@ struct VehicleProperties: Decodable {
     let maxAtmospheringSpeed: String
     let cargoCapacity: String
     let name: String
-    let url: String
     
     var description: String {
         """

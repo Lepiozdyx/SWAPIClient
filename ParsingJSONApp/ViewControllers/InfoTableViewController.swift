@@ -62,16 +62,15 @@ extension InfoTableViewController {
     func fetchData(from url: URL) {
         networkManager.fetch(StarWars.self, from: url) { [weak self] result in
             switch result {
-            case .success(let about):
-                self?.results.append(contentsOf: about.results)
-                if let next = about.next {
+            case .success(let data):
+                self?.results.append(contentsOf: data.results)
+                if let next = data.next {
                     self?.nextPageURL = URL(string: next)
                 }
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
-                print(error)
                 self?.presentAlertError(with: error)
             }
         }

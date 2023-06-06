@@ -16,7 +16,7 @@ enum UserAction: CaseIterable {
     var title: String {
         switch self {
         case .people:
-            return "People"
+            return "Characters"
         case .planets:
             return "Planets"
         case .starships:

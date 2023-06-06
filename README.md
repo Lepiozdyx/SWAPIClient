@@ -27,6 +27,7 @@ In developing this app, I was able to achieve several important goals:
 - Implement pagination and search, which are important features for most data-intensive applications.
 - Master the basic capabilities of the UICollectionViewController to create a dynamic and interactive user interface.
 - Combine my passion for Star Wars and application development.
+- Since Star Wars photos and images are copyrighted and not provided by the chosen API, I focused on implementing textual data about the Star Wars universe, leaving the application without visualizing that data.
 
 <img width="170" alt="Снимок экрана 2023-06-06 в 19 36 35" src="https://github.com/Lepiozdyx/SWAPIClient/assets/24369933/4d8d9345-21bc-4bcc-b9ab-87b00ee28a06">
 <img width="170" alt="Снимок экрана 2023-06-06 в 19 36 46" src="https://github.com/Lepiozdyx/SWAPIClient/assets/24369933/614114e0-648f-4803-80c0-970f9153e6df">
